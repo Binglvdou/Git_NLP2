@@ -48,7 +48,7 @@
           $$\text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}$$
           
           其中 $N$ 是总邮件数，$\text{DF}(t)$ 是包含词 $t$ 的邮件数。
-      - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
+    - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
 ### 高频词/TF-IDF两种特征模式的切换方法
 在代码中，通过设置 `feature_type` 参数选择特征提取方式：
