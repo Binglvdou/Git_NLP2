@@ -48,6 +48,8 @@
           $$\mathrm{IDF}(t) = \log \frac{N}{1 + \mathrm{DF}(t)}$$
           
           其中 $N$ 是总邮件数， $\mathrm{DF}(t)$ 是包含词 $t$ 的邮件数。
+          <!-- 这里$\mathrm{DF}(t)$在GitHub仓库一直无法正常显示，原因是“，”与“$”之间缺少一个空格。-->
+          <!-- 本来中文的“，”后面就自带一个迷惑性空格，导致一直没发现这个问题。 -->
     - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
 ### 高频词/TF-IDF两种特征模式的切换方法
