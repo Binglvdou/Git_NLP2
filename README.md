@@ -7,11 +7,21 @@
 ### 算法基础
 本项目采用**多项式朴素贝叶斯分类器**（Multinomial Naive Bayes），其核心思想是基于贝叶斯定理和条件概率的特征独立性假设。
 
-- **贝叶斯定理**：在文本分类中，贝叶斯定理用于计算给定文本内容条件下其属于某一类别的概率。具体形式为：
-<img src="image/3.25_5.png" weight="800" alt="截图5">
+- **贝叶斯定理**：在邮件分类中，贝叶斯定理用于计算给定邮件内容条件下邮件属于某一类别的概率。具体形式为：
+  $$
+  P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)}
+  $$
+  其中：
+  - $ P(y|x) $ 是邮件内容 $ x $ 属于类别 $ y $ 的后验概率。
+  - $ P(x|y) $ 是类别 $ y $ 下邮件内容 $ x $ 的似然概率。
+  - $ P(y) $ 是类别 $ y $ 的先验概率。
+  - $ P(x) $ 是邮件内容 $ x $ 的边际概率。
 
-- **特征独立性假设**：多项式朴素贝叶斯假设文本中的每个词（特征）是相互独立的，即：
-<img src="image/3.25_6.png" weight="800" alt="截图6">
+- **特征独立性假设**：多项式朴素贝叶斯假设邮件中的每个词（特征）是相互独立的，即：
+  $$
+  P(x|y) = \prod_{i=1}^{n} P(x_i|y)
+  $$
+  其中 $ x_i $ 表示邮件中的第 $ i $ 个词。
 
 ### 数据处理流程
 1. **分词处理**：使用 `jieba` 库对文本内容进行分词，将文本切分为独立的词语。
@@ -28,8 +38,17 @@
 2. **TF-IDF加权特征**：
    - 计算每个词的TF-IDF值，衡量词在文本中的重要性。
    - 数学表达形式：
-   <img src="image/3.25_7.png" weight="800" alt="截图7">
-   - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
+        $$
+        \text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t)
+        $$
+        其中：
+        - $ \text{TF}(t, d) $ 是词 $ t $ 在邮件 $ d $ 中的词频。
+        - $ \text{IDF}(t) $ 是词 $ t $ 的逆文档频率，计算公式为：
+          $$
+          \text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}
+          $$
+          其中 $ N $ 是总邮件数，$ \text{DF}(t) $ 是包含词 $ t $ 的邮件数。
+      - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
 ### 高频词/TF-IDF两种特征模式的切换方法
 在代码中，通过设置 `feature_type` 参数选择特征提取方式：
@@ -61,10 +80,3 @@ feature_type = 'freq'  # 使用高频词特征
 
 <img src="image/3.25_4.png" weight="800" alt="classify_Hint.py截图">
 
-
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-
-The Cauchy-Schwarz Inequality
-
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
