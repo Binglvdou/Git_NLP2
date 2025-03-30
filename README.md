@@ -44,9 +44,9 @@
         其中：
         - $\text{TF}(t, d)$ 是词 $t$ 在邮件 $d$ 中的词频。
         - $\text{IDF}(t)$ 是词 $t$ 的逆文档频率，计算公式为：
-          
-          $$\text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}$$
-          
+          $$
+          \text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}
+          $$
           其中 $N$ 是总邮件数，$\text{DF}(t)$ 是包含词 $t$ 的邮件数。
     - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
