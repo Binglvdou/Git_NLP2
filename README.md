@@ -12,10 +12,10 @@
   $$P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)}$$
   
   其中：
-  - $P(y|x)$ 是邮件内容$x$属于类别$y$的后验概率。
-  - $ P(x|y) $ 是类别 $ y $ 下邮件内容 $ x $ 的似然概率。
-  - $ P(y) $ 是类别 $ y $ 的先验概率。
-  - $ P(x) $ 是邮件内容 $ x $ 的边际概率。
+  - $P(y|x)$是邮件内容 $x$ 属于类别 $y$ 的后验概率。
+  - $P(x|y)$ 是类别 $y$ 下邮件内容 $x$ 的似然概率。
+  - $P(y)$ 是类别 $y$ 的先验概率。
+  - $P(x)$ 是邮件内容 $x$ 的边际概率。
 
 - **特征独立性假设**：多项式朴素贝叶斯假设邮件中的每个词（特征）是相互独立的，即：
   
@@ -42,12 +42,12 @@
         $$\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t)$$
         
         其中：
-        - $ \text{TF}(t, d) $ 是词 $ t $ 在邮件 $ d $ 中的词频。
-        - $ \text{IDF}(t) $ 是词 $ t $ 的逆文档频率，计算公式为：
-          $$
-          \text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}
-          $$
-          其中 $ N $ 是总邮件数，$ \text{DF}(t) $ 是包含词 $ t $ 的邮件数。
+        - $\text{TF}(t, d)$ 是词 $t$ 在邮件 $d$ 中的词频。
+        - $\text{IDF}(t)$ 是词 $t$ 的逆文档频率，计算公式为：
+          
+          $$\text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}$$
+          
+          其中 $N$ 是总邮件数，$\text{DF}(t)$ 是包含词 $t$ 的邮件数。
       - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
 ### 高频词/TF-IDF两种特征模式的切换方法
