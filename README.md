@@ -39,15 +39,15 @@
    - 计算每个词的TF-IDF值，衡量词在文本中的重要性。
    - 数学表达形式：
         
-        $$\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t)$$
+        $$\text{TF-IDF}(t, d) = \mathrm{TF}(t, d) \times \mathrm{IDF}(t)$$
         
         其中：
-        - $\text{TF}(t, d)$ 是词 $t$ 在邮件 $d$ 中的词频。
-        - $\text{IDF}(t)$ 是词 $t$ 的逆文档频率，计算公式为：
+        - $\mathrm{TF}(t, d)$ 是词 $t$ 在邮件 $d$ 中的词频。
+        - $\mathrm{IDF}(t)$ 是词 $t$ 的逆文档频率，计算公式为：
           
-          $$\text{IDF}(t) = \log \frac{N}{1 + \text{DF}(t)}$$
+          $$\mathrm{IDF}(t) = \log \frac{N}{1 + \mathrm{DF}(t)}$$
           
-          其中 $N$ 是总邮件数，$\text{DF}(t)$ 是包含词 $t$ 的邮件数。
+          其中 $N$ 是总邮件数，$\mathrm{DF}(t)$ 是包含词 $t$ 的邮件数。
     - 实现方式：使用 `sklearn.feature_extraction.text.TfidfVectorizer` 计算TF-IDF值。
 
 ### 高频词/TF-IDF两种特征模式的切换方法
